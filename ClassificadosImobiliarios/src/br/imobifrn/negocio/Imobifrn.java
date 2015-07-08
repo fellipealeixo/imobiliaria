@@ -2,14 +2,14 @@ package br.imobifrn.negocio;
 
 import java.util.List;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
 import br.imobifrn.entidades.Anuncio;
 
-@Remote
+@Local
 public interface Imobifrn {
 
-	void criarAnuncio(Anuncio anuncio);
+	public boolean criarAnuncio(Anuncio anuncio);
 
-	List<Anuncio> getAnuncios();	
+	public List<Anuncio> getAnuncios();	
 }

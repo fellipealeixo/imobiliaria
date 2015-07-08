@@ -3,20 +3,24 @@ package br.imobifrn.negocio;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 import br.imobifrn.daos.AnuncioDAO;
 import br.imobifrn.entidades.Anuncio;
 
+@Stateless
 public class ImobifrnImpl implements Imobifrn {
 
 	@EJB
 	AnuncioDAO daoAnuncio;
 	
 	@Override
-	public void criarAnuncio(Anuncio anuncio) {
+	public boolean criarAnuncio(Anuncio anuncio) {
 		if (anuncio != null && anuncio.getId() == 0) {
 			daoAnuncio.criarAnuncio(anuncio);
+			return true;
 		}
+		return false;
 	}
 
 	@Override
