@@ -1,4 +1,4 @@
-package Entidades;
+package br.imobifrn.entidades;
 
 import java.io.Serializable;
 import java.lang.String;
@@ -8,8 +8,11 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Anuncio
  *
  */
-@Entity
 
+@NamedQueries({
+	@NamedQuery(name="getAllAnuncios", query="SELECT a FROM Anuncio a")
+})
+@Entity
 public class Anuncio implements Serializable {
 	private int id;
 	private String conteudo;
@@ -22,6 +25,7 @@ public class Anuncio implements Serializable {
 
 	public Anuncio() {
 		super();
+		tipoAnuncio = TipoAnuncio.Aluguel;
 	}   
 	
 	
@@ -38,7 +42,8 @@ public class Anuncio implements Serializable {
 	}
 
 
-	@Id    
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return this.id;
 	}

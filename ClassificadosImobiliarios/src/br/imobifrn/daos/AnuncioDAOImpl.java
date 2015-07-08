@@ -1,20 +1,30 @@
-package Entidades;
+package br.imobifrn.daos;
+
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import br.imobifrn.entidades.Anuncio;
 
 @Stateless
 public class AnuncioDAOImpl implements AnuncioDAO {
 
 	@PersistenceContext(unitName="imobiliaria")
 	EntityManager em;
+	
 	@Override
 	public void criarAnuncio(Anuncio anuncio) {
-		// TODO Auto-generated method stub
-		
 		em.persist(anuncio);
+	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Anuncio> getAll() {
+		Query query = em.createNamedQuery("getAllAnuncios");
+		return query.getResultList();
 	}
 
 }
