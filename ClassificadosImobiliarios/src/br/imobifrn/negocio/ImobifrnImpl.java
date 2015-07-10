@@ -6,13 +6,18 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import br.imobifrn.daos.AnuncioDAO;
+import br.imobifrn.daos.UsuarioDAO;
 import br.imobifrn.entidades.Anuncio;
+import br.imobifrn.entidades.Usuario;
+import br.imobifrn.exception.UsuarioExistenteExecption;
 
 @Stateless
 public class ImobifrnImpl implements Imobifrn {
 
 	@EJB
 	AnuncioDAO daoAnuncio;
+	@EJB
+	UsuarioDAO daoUsuario;
 	
 	@Override
 	public boolean criarAnuncio(Anuncio anuncio) {
@@ -26,6 +31,23 @@ public class ImobifrnImpl implements Imobifrn {
 	@Override
 	public List<Anuncio> getAnuncios() {
 		return daoAnuncio.getAll();
+	}
+
+	@Override
+	public boolean criarUsuario(Usuario usuario) {
+		try {
+			if (usuario != null) {
+				daoUsuario.salvar(usuario);
+				return true;
+			}
+			return false;
+		}
+		catch (UsuarioExistenteExecption ex) {
+			return false;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 }

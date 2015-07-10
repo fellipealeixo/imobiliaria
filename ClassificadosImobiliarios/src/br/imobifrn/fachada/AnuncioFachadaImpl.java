@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import br.imobifrn.entidades.Anuncio;
+import br.imobifrn.entidades.Usuario;
 import br.imobifrn.negocio.Imobifrn;
 
 @Stateless
@@ -24,5 +25,9 @@ public class AnuncioFachadaImpl implements AnuncioFachada {
 
 	public List<Anuncio> getAnuncios() {
 		return imobifrn.getAnuncios();
+	}
+	
+	public boolean criarUsuario(Usuario usuario) {
+		return imobifrn.criarUsuario(usuario);
 	}
 }
