@@ -30,4 +30,8 @@ public class AnuncioFachadaImpl implements AnuncioFachada {
 	public boolean criarUsuario(Usuario usuario) {
 		return imobifrn.criarUsuario(usuario);
 	}
+	
+	public boolean alterarUsuario(Usuario usuario){
+		return imobifrn.alterarUsuario(usuario);
+	}
 }

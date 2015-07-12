@@ -15,4 +15,5 @@ public interface AnuncioFachada {
 	public List<Anuncio> getAnuncios();
 	
 	public boolean criarUsuario(Usuario usuario);
+	public boolean alterarUsuario(Usuario usuario);
 }

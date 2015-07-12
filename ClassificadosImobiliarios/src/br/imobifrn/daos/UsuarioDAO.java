@@ -8,4 +8,5 @@ import br.imobifrn.exception.UsuarioExistenteExecption;
 @Local
 public interface UsuarioDAO {
 	void salvar(Usuario usuario) throws Exception;
+	void alterarUsuario(Usuario usuario) throws Exception;
 }

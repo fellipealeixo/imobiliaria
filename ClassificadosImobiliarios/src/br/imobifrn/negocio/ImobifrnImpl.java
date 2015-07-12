@@ -49,5 +49,16 @@ public class ImobifrnImpl implements Imobifrn {
 			return false;
 		}
 	}
+	
+	@Override
+	public boolean alterarUsuario(Usuario usuario) {
+		try {
+			daoUsuario.alterarUsuario(usuario);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+	}
 
 }

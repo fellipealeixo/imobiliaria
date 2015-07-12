@@ -6,8 +6,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import org.eclipse.persistence.exceptions.DatabaseException;
-
 import br.imobifrn.entidades.Usuario;
 import br.imobifrn.exception.UsuarioExistenteExecption;
 
@@ -19,11 +17,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	
 	@Override
 	public void salvar(Usuario usuario) throws Exception {
-		try {
-			em.persist(usuario);
-		}
-		catch (DatabaseException e) {
-			throw new Exception(e.getMessage());
-		}
+		em.persist(usuario);
+	}
+
+	@Override
+	public void alterarUsuario(Usuario usuario) {
+		//Usuario us;
+		//us = em.find(Usuario.class, usuario.getId());
+		em.merge(usuario);
 	}
 }
