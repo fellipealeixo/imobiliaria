@@ -49,9 +49,28 @@ public class UsuarioMB {
 		return "cadastroUsuario.xhtml";
 	}
 	
+	public String alterarUsuario(){
+		if (usuario.getLogin() != null && !usuario.getLogin().equals("") &&
+				usuario.getSenha() != null && !usuario.getSenha().equals("") &&
+				confirmarSenha != null && !confirmarSenha.equals("")) {
+				if (usuario.getSenha().equals(confirmarSenha)) {
+					fachada.alterarUsuario(usuario);
+					return "index.xhtml";
+				}
+				else {
+					this.setMensagem("As senha não correspondem");
+				}
+			}
+			else {
+				this.setMensagem("Todos os campos precisam ser preenchidos");
+			}
+			return "alterarUsuario.xhtml";
+	}
+	
 	/*
 	 * Gets e Seters	
 	 * */
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
