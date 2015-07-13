@@ -52,4 +52,14 @@ public class AnuncioMB {
 	public boolean isPossuiAnuncios () {
 		return !this.getAnuncios().isEmpty();
 	}
+	
+	public List<Anuncio> sortByAsc(){
+		anuncios = fachada.sortByValorASC();
+		return anuncios;
+	}
+	
+	public List<Anuncio> sortByDesc() {
+		anuncios = fachada.sortByValorDESC();
+		return anuncios;
+	}
 }

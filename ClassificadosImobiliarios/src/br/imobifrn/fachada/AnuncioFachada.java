@@ -14,5 +14,9 @@ public interface AnuncioFachada {
 
 	public List<Anuncio> getAnuncios();
 	
+	public List<Anuncio> sortByValorASC();
+	
+	public List<Anuncio> sortByValorDESC();
+	
 	public boolean criarUsuario(Usuario usuario);
 }

@@ -11,5 +11,9 @@ public interface AnuncioDAO {
 	public void criarAnuncio(Anuncio anuncio);
 
 	public List<Anuncio> getAll();
+	
+	public List<Anuncio> getImovelValorAsc();
+	
+	public List<Anuncio> getImovelValorDesc();
 
 }

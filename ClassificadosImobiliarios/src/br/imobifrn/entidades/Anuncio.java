@@ -10,7 +10,9 @@ import javax.persistence.*;
  */
 
 @NamedQueries({
-	@NamedQuery(name="getAllAnuncios", query="SELECT a FROM Anuncio a")
+	@NamedQuery(name="getAllAnuncios", query="SELECT a FROM Anuncio a"),
+	@NamedQuery(name="getAnunciosByPriceASC", query="SELECT a FROM Anuncio a ORDER BY a ASC"),
+	@NamedQuery(name="getAnunciosByPriceDESC", query="SELECT a FROM Anuncio a ORDER BY a DESC")
 })
 @Entity
 public class Anuncio implements Serializable {

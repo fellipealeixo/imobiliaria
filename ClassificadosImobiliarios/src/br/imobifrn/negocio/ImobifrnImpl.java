@@ -50,4 +50,14 @@ public class ImobifrnImpl implements Imobifrn {
 		}
 	}
 
+	@Override
+	public List<Anuncio> getAnunciosByValorASC() {
+		return daoAnuncio.getImovelValorAsc();
+	}
+
+	@Override
+	public List<Anuncio> getAnunciosByValorDESC() {
+		return daoAnuncio.getImovelValorDesc();
+	}
+
 }

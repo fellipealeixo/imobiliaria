@@ -27,6 +27,14 @@ public class AnuncioFachadaImpl implements AnuncioFachada {
 		return imobifrn.getAnuncios();
 	}
 	
+	public List<Anuncio> sortByValorASC(){
+		return imobifrn.getAnunciosByValorASC();
+	}
+	
+	public List<Anuncio> sortByValorDESC(){
+		return imobifrn.getAnunciosByValorDESC();
+	}
+	
 	public boolean criarUsuario(Usuario usuario) {
 		return imobifrn.criarUsuario(usuario);
 	}

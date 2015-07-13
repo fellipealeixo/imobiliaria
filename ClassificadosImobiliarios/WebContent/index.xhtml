@@ -15,6 +15,11 @@
 	<f:view>
 		<h2>Imobiliária IFRN</h2>
 		<h:dataTable border="1" value="#{anuncioMB.anuncios}" var="imovel">
+		
+			<h:head id="HeaderAnuncio">Classificar imóveis por valor 
+				<h:commandLink>&#x25B2</h:commandLink>
+				<h:commandLink>&#x25BC</h:commandLink>
+			</h:head>
 			<h:column id="column1">
 				<f:facet name="header">
 					<h:outputText value="Imóvel"></h:outputText>

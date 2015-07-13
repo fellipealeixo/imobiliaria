@@ -26,5 +26,16 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 		Query query = em.createNamedQuery("getAllAnuncios");
 		return query.getResultList();
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public List<Anuncio> getImovelValorAsc() {
+		Query query = em.createNamedQuery("getAnunciosByPriceASC");
+		return query.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Anuncio> getImovelValorDesc() {
+		Query query = em.createNamedQuery("getAnunciosByPriceDESC");
+		return query.getResultList();
+	}
 }
