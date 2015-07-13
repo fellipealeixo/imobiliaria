@@ -61,4 +61,19 @@ public class ImobifrnImpl implements Imobifrn {
 		return true;
 	}
 
+	@Override
+	public Usuario selecionarUsuario(Usuario usuario) {
+		
+		try {
+			Usuario us;
+			us = daoUsuario.selecionarUsuario(usuario);
+			
+			return us;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+		
+	}
+
 }

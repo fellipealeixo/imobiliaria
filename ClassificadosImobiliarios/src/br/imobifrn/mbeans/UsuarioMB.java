@@ -50,6 +50,17 @@ public class UsuarioMB {
 	}
 	
 	public String alterarUsuario(){
+		Usuario us;
+		us = fachada.selecionarUsuario(usuario);
+		
+		usuario.setLogin(us.getLogin());
+		usuario.setId(us.getId());
+		usuario.setSenha(us.getSenha());
+				
+		return "alterarUsuario.xhtml";
+	}
+	
+	public String processaAlterarUsuario(){
 		if (usuario.getLogin() != null && !usuario.getLogin().equals("") &&
 				usuario.getSenha() != null && !usuario.getSenha().equals("") &&
 				confirmarSenha != null && !confirmarSenha.equals("")) {

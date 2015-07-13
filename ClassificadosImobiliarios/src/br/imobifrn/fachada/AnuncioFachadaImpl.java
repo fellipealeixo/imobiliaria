@@ -34,4 +34,9 @@ public class AnuncioFachadaImpl implements AnuncioFachada {
 	public boolean alterarUsuario(Usuario usuario){
 		return imobifrn.alterarUsuario(usuario);
 	}
+
+	@Override
+	public Usuario selecionarUsuario(Usuario usuario) {
+		return imobifrn.selecionarUsuario(usuario);
+	}
 }

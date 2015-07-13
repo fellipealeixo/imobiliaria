@@ -16,4 +16,6 @@ public interface AnuncioFachada {
 	
 	public boolean criarUsuario(Usuario usuario);
 	public boolean alterarUsuario(Usuario usuario);
+
+	public Usuario selecionarUsuario(Usuario usuario);
 }
