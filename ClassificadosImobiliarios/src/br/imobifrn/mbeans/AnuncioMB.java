@@ -1,6 +1,8 @@
 package br.imobifrn.mbeans;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -19,6 +21,8 @@ public class AnuncioMB {
 	
 	private Anuncio anuncio;
 	private List<Anuncio> anuncios;
+	
+	private boolean ordenaAsc = true;
 	
 	public AnuncioMB() {
 		super();
@@ -53,13 +57,15 @@ public class AnuncioMB {
 		return !this.getAnuncios().isEmpty();
 	}
 	
-	public List<Anuncio> sortByAsc(){
-		anuncios = fachada.sortByValorASC();
-		return anuncios;
-	}
 	
-	public List<Anuncio> sortByDesc() {
-		anuncios = fachada.sortByValorDESC();
-		return anuncios;
-	}
+	public List<Anuncio> sortByAsc() {
+		 
+			if (ordenaAsc){
+				anuncios = fachada.sortByValorASC();
+			}else anuncios = fachada.sortByValorDESC();
+		   return anuncios;
+		   
+		}
+
+	
 }

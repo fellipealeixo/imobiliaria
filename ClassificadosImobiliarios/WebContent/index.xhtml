@@ -14,12 +14,10 @@
 <body>
 	<f:view>
 		<h2>Imobiliária IFRN</h2>
-		<h:dataTable border="1" value="#{anuncioMB.anuncios}" var="imovel">
 		
-			<h:head id="HeaderAnuncio">Classificar imóveis por valor 
-				<h:commandLink>&#x25B2</h:commandLink>
-				<h:commandLink>&#x25BC</h:commandLink>
-			</h:head>
+		  <h:form>
+		<h:dataTable border="1" value="#{anuncioMB.anuncios}" var="imovel" id="tabelaImoveis">
+		
 			<h:column id="column1">
 				<f:facet name="header">
 					<h:outputText value="Imóvel"></h:outputText>
@@ -38,7 +36,20 @@
 				</f:facet>
 				<h:outputText value="#{imovel.bairro}"></h:outputText>
 			</h:column>
+			
+			<h:column id="column4">
+				
+				 <f:facet name="header">
+
+                     <h:commandLink action="#{anuncioMB.sortByAsc}" reRender="tabelaImoveis" >Valor</h:commandLink>
+							
+                 </f:facet>
+				<h:outputText value="#{imovel.valor}"></h:outputText>
+			</h:column>
+			
 		</h:dataTable>
+		</h:form>
+		
 		<h:form>
 			<h:commandButton value="Novo Anúncio" action="cadastroImovel.xhtml">
 			</h:commandButton>
@@ -51,3 +62,4 @@
 	</f:view>
 </body>
 </html>
+
