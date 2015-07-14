@@ -54,8 +54,6 @@ public class UsuarioMB {
 		us = fachada.selecionarUsuario(usuario);
 		
 		usuario.setLogin(us.getLogin());
-		usuario.setId(us.getId());
-		usuario.setSenha(us.getSenha());
 				
 		return "alterarUsuario.xhtml";
 	}
@@ -65,7 +63,7 @@ public class UsuarioMB {
 				usuario.getSenha() != null && !usuario.getSenha().equals("") &&
 				confirmarSenha != null && !confirmarSenha.equals("")) {
 				if (usuario.getSenha().equals(confirmarSenha)) {
-					fachada.alterarUsuario(usuario);
+					fachada.processaAlterarUsuario(usuario);
 					return "index.xhtml";
 				}
 				else {

@@ -11,6 +11,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 
+@NamedQueries({
+	//@NamedQuery(name="getUsuario", query="SELECT a FROM Usuario a WHERE a.id = :id")
+	@NamedQuery(name="getUsuario", query="SELECT a FROM Usuario a")
+})
 @Entity
 public class Usuario implements Serializable {
 	private int id;

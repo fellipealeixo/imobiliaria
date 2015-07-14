@@ -18,4 +18,6 @@ public interface AnuncioFachada {
 	public boolean alterarUsuario(Usuario usuario);
 
 	public Usuario selecionarUsuario(Usuario usuario);
+
+	public boolean processaAlterarUsuario(Usuario usuario);
 }

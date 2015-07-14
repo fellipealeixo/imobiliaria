@@ -16,7 +16,7 @@ import br.imobifrn.exception.UsuarioExistenteExecption;
 public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@PersistenceContext(unitName="imobiliaria")
-	private EntityManager em;
+	EntityManager em;
 	
 	@Override
 	public void salvar(Usuario usuario) throws Exception {
@@ -27,20 +27,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public void alterarUsuario(Usuario usuario) {
 		//Usuario us;
 		//us = em.find(Usuario.class, usuario.getId());
+		//em.persist(usuario);
 		em.merge(usuario);
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public Usuario selecionarUsuario(Usuario usuario) {
-		// Query para obter um usuário.
-		//Query query = em.createQuery("Select e FROM usuario e WHERE e.id = :id");
-		//query.setParameter("id", usuario.getId());
-		//Usuario result2 = (Usuario)query.getSingleResult();
-		Usuario result2 = new Usuario();
-		result2.setId(1);
-		result2.setLogin("Marcelo");
-		result2.setSenha("123");
 		
-		return result2;
+		Query query = em.createNamedQuery("getUsuario");
+		return (Usuario) query.getSingleResult();
+		//return (Usuario) query.setParameter(1, usuario).getSingleResult();
+		
 	}
+
 }
