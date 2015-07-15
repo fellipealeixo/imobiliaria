@@ -14,5 +14,4 @@ public interface Imobifrn {
 
 	public List<Anuncio> getAnuncios();	
 	
-	public boolean criarUsuario(Usuario usuario);
 }

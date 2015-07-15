@@ -9,7 +9,7 @@ import br.imobifrn.daos.AnuncioDAO;
 import br.imobifrn.daos.UsuarioDAO;
 import br.imobifrn.entidades.Anuncio;
 import br.imobifrn.entidades.Usuario;
-import br.imobifrn.exception.UsuarioExistenteExecption;
+import br.imobifrn.exception.UsuarioExistenteException;
 
 @Stateless
 public class ImobifrnImpl implements Imobifrn {
@@ -31,23 +31,6 @@ public class ImobifrnImpl implements Imobifrn {
 	@Override
 	public List<Anuncio> getAnuncios() {
 		return daoAnuncio.getAll();
-	}
-
-	@Override
-	public boolean criarUsuario(Usuario usuario) {
-		try {
-			if (usuario != null) {
-				daoUsuario.salvar(usuario);
-				return true;
-			}
-			return false;
-		}
-		catch (UsuarioExistenteExecption ex) {
-			return false;
-		}
-		catch (Exception e) {
-			return false;
-		}
 	}
 
 }

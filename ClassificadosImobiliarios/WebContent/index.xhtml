@@ -10,10 +10,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Sistema de Imobiliária IFRN</title>
 </head>
-
 <body>
 	<f:view>
 		<h2>Imobiliária IFRN</h2>
+		<font color="blue">
+			<h:outputText rendered="#{usuarioMB.comMensagem}" value="#{usuarioMB.mensagem}"></h:outputText>
+		</font>
+		<h:form id="form1" rendered="#{usuarioMB.notLogado}">
+			Login: <h:inputText value="#{usuarioMB.login}"></h:inputText> 
+			Senha: <h:inputSecret value="#{usuarioMB.senha}"></h:inputSecret>
+			<h:commandButton action="#{usuarioMB.efetuarLogin}" value="Entrar no Sistema"></h:commandButton>
+		</h:form>
+		<h:form  id="f2" rendered="#{usuarioMB.logado}">
+			<h:outputText value="Bem vindo, #{usuarioMB.usuario.login} - "></h:outputText>
+			<h:commandLink action="#{usuarioMB.logout}">
+				<h:outputText value="SAIR do sistema"></h:outputText>
+			</h:commandLink>
+		</h:form>
 		<h:dataTable border="1" value="#{anuncioMB.anuncios}" var="imovel">
 			<h:column id="column1">
 				<f:facet name="header">

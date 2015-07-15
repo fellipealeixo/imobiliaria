@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import org.eclipse.persistence.exceptions.DatabaseException;
 
 import br.imobifrn.entidades.Usuario;
-import br.imobifrn.exception.UsuarioExistenteExecption;
+import br.imobifrn.exception.UsuarioExistenteException;
 
 @Stateless
 public class UsuarioDAOImpl implements UsuarioDAO {
@@ -18,12 +18,25 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	private EntityManager em;
 	
 	@Override
-	public void salvar(Usuario usuario) throws Exception {
+	public void salvar(Usuario usuario) throws UsuarioExistenteException {
 		try {
 			em.persist(usuario);
 		}
 		catch (DatabaseException e) {
-			throw new Exception(e.getMessage());
+			throw new UsuarioExistenteException(e.getMessage());
 		}
+	}
+
+	@Override
+	public Usuario getUsuarioByLoginESenha(String login, String senha) {
+		Query consulta = em.createNamedQuery("buscarUsuario"); 
+		consulta.setParameter("login", login);
+		consulta.setParameter("senha", senha);
+		Usuario usr = null;
+		try {
+			usr = (Usuario) consulta.getSingleResult();
+		} catch (PersistenceException pex) {
+		}
+		return usr;
 	}
 }
