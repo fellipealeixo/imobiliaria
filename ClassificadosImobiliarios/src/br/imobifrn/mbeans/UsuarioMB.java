@@ -81,4 +81,13 @@ public class UsuarioMB {
 	public boolean isComMensagem() {
 		return !mensagem.isEmpty();
 	}
+	
+	public List<Anuncio> getAnunciosUsuarioLogado()
+	{
+		if(isLogado())
+			return fachada.getAnunciosUsuarioLogado(usuario.getId());
+		
+		this.setMensagem("Não existe usuario logado");
+		return "index.xhtml";
+	}
 }
