@@ -40,7 +40,9 @@
 		</h:form>
 		
 		<h:form>
-			<h:commandButton value="Cadastre-se" action="cadastroUsuario.xhtml">
+			<h:commandButton value="Cadastre-se" action="cadastroUsuario.xhtml" rendered="#{usuarioMB.isNaoLogado}">
+			</h:commandButton>
+			<h:commandButton value="Meus anuncios" action="usuarioMB.getAnunciosUsuarioLogado" rendered="#{usuarioMB.isLogado}">
 			</h:commandButton>
 		</h:form>
 	</f:view>
