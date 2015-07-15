@@ -50,4 +50,12 @@ public class ImobifrnImpl implements Imobifrn {
 		}
 	}
 
+	@Override
+	public List<Anuncio> getAnunciosUsuarioLogado()
+	{
+		int idUsuarioLogado = 0;
+		HashMap<String, String> parametros = new HashMap<String, String>();
+		parametros.put("id", isUsuarioLogado);
+		return daoAnuncio.pesquisarAnuncios(parametros);
+	}
 }
