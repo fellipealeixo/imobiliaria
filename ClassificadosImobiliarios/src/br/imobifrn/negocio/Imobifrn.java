@@ -1,6 +1,7 @@
 package br.imobifrn.negocio;
 
 import java.util.List;
+import java.util.HashMap;
 
 import javax.ejb.Local;
 
@@ -16,5 +17,5 @@ public interface Imobifrn {
 	
 	public boolean criarUsuario(Usuario usuario);
 	
-	public List<Anuncio> getAnunciosUsuarioLogado();
+	public List<Anuncio> getAnunciosUsuarioLogado(int idUsuarioLogado);
 }

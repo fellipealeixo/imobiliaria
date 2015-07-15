@@ -1,6 +1,7 @@
 package br.imobifrn.negocio;
 
 import java.util.List;
+import java.util.HashMap;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -51,9 +52,8 @@ public class ImobifrnImpl implements Imobifrn {
 	}
 
 	@Override
-	public List<Anuncio> getAnunciosUsuarioLogado()
+	public List<Anuncio> getAnunciosUsuarioLogado(int idUsuarioLogado)
 	{
-		int idUsuarioLogado = 0;
 		HashMap<String, String> parametros = new HashMap<String, String>();
 		parametros.put("id", isUsuarioLogado);
 		return daoAnuncio.pesquisarAnuncios(parametros);

@@ -52,4 +52,13 @@ public class AnuncioMB {
 	public boolean isPossuiAnuncios () {
 		return !this.getAnuncios().isEmpty();
 	}
+	
+	public List<Anuncio> getAnunciosUsuarioLogado()
+	{
+		int idUsuarioLogado = 0; //necessario checar se o usuario está logado!
+		if(idUsuarioLogado > 0)
+			return fachada.getAnunciosUsuarioLogado(idUsuarioLogado);
+		else
+			return fachada.getAnuncios();
+	}
 }
