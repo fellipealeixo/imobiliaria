@@ -1,8 +1,6 @@
 package br.imobifrn.mbeans;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -22,12 +20,19 @@ public class AnuncioMB {
 	private Anuncio anuncio;
 	private List<Anuncio> anuncios;
 	
-	private boolean ordenaAsc = true;
+	private List<Anuncio> anunciosCrescente;
+	private List<Anuncio> anunciosDecrescente;
+	
+	private boolean ordena = true;
+	private boolean ordenaDesc = false;
 	
 	public AnuncioMB() {
 		super();
 		anuncio = new Anuncio();
 		anuncios = new ArrayList<Anuncio>();
+		anunciosCrescente  = new ArrayList<Anuncio>();
+		anunciosDecrescente = new ArrayList<Anuncio>();
+		
 	}
 	
 	public String criarAnuncio(){
@@ -57,15 +62,40 @@ public class AnuncioMB {
 		return !this.getAnuncios().isEmpty();
 	}
 	
+	public List<Anuncio> getAnunciosCrescente(){
+		anunciosCrescente = fachada.sortByValorASC();
+		return anunciosCrescente;
+	}
+	
+	public List<Anuncio> getAnunciosDecrescente(){
+		anunciosDecrescente = fachada.sortByValorDESC();
+		return anunciosDecrescente;
+	}
 	
 	public List<Anuncio> sortByAsc() {
 		 
-			if (ordenaAsc){
-				anuncios = fachada.sortByValorASC();
-			}else anuncios = fachada.sortByValorDESC();
+			if (ordena && (ordenaDesc == false)){
+				//setAnuncios(fachada.sortByValorASC());
+				ordena = false;
+				ordenaDesc = true;
+			}else
+				{
+				//setAnuncios(fachada.sortByValorDESC());
+				ordena = true;
+				ordenaDesc = false;
+				}
 		   return anuncios;
 		   
-		}
-
+	}
+	
+	public boolean isSortAscTrue() {
+		return ordena == true;
+	}
+	
+	public boolean isSortDescTrue(){
+		return ordenaDesc == true;
+	}
+	
+	
 	
 }
