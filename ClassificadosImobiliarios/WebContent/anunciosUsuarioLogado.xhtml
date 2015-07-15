@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Sistema de Imobiliária IFRN</title>
+</head>
+
+<body>
+	<f:view>
+		<h2>Imobiliária IFRN</h2>
+		  		
+		<h:form id="f1" rendered="#{usuarioMB.isLogado}">
+		<h:dataTable border="1" value="#{usuarioMB.anunciosUsuarioLogado}" var="imovel">
+			<h:column id="column1">
+				<f:facet name="header">
+					<h:outputText value="Imóvel"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.conteudo}"></h:outputText>
+			</h:column>
+			<h:column id="column2">
+				<f:facet name="header">
+					<h:outputText value="Metragem"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.metragem}"></h:outputText>
+			</h:column>
+			<h:column id="column3">
+				<f:facet name="header">
+					<h:outputText value="Bairro"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.bairro}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+		</h:form>
+		
+		<h:form>
+			<h:commandButton value="Novo Anúncio" action="cadastroImovel.xhtml">
+			</h:commandButton>
+		</h:form>
+		
+	</f:view>
+</body>
+</html>
+

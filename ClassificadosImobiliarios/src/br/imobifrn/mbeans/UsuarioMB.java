@@ -106,6 +106,7 @@ public class UsuarioMB {
 		return !mensagem.isEmpty();
 	}
 	
+<<<<<<< HEAD
 	public String getLogin() {
 		return login;
 	}
@@ -136,5 +137,14 @@ public class UsuarioMB {
 		confirmarSenha = "";
 		mensagem = "";
 		logado = false;
+=======
+	public List<Anuncio> getAnunciosUsuarioLogado()
+	{
+		if(isLogado())
+			return fachada.getAnunciosUsuarioLogado(usuario.getId());
+		
+		this.setMensagem("Não existe usuario logado");
+		return "index.xhtml";
+>>>>>>> origin/ListarImoveisUsuarioLogado
 	}
 }
