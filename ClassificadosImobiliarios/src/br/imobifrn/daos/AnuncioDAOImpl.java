@@ -32,8 +32,6 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 	@Override
 	public List<Anuncio> pesquisarAnuncios(HashMap<String, String> parametros)
 	{
-		Query query = em.createNamedQuery("getAnunciosByPriceDESC");
-		
 		String queryString = "select a from Anuncio a where";
 		if(queryString.containsKey("id"))
 			queryString += " id = " + parametros.get("id");
