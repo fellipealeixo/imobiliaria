@@ -20,18 +20,12 @@ public class AnuncioMB {
 	private Anuncio anuncio;
 	private List<Anuncio> anuncios;
 	
-	private List<Anuncio> anunciosCrescente;
-	private List<Anuncio> anunciosDecrescente;
-	
-	private boolean ordena = true;
-	private boolean ordenaDesc = false;
+		private boolean ordena = true;
 	
 	public AnuncioMB() {
 		super();
 		anuncio = new Anuncio();
 		anuncios = new ArrayList<Anuncio>();
-		anunciosCrescente  = new ArrayList<Anuncio>();
-		anunciosDecrescente = new ArrayList<Anuncio>();
 		
 	}
 	
@@ -50,7 +44,9 @@ public class AnuncioMB {
 	}
 
 	public List<Anuncio> getAnuncios() {
-		anuncios = fachada.getAnuncios();
+		if (ordena){
+			setAnuncios(fachada.sortByValorASC());
+		}else setAnuncios(fachada.sortByValorDESC());
 		return anuncios;
 	}
 
@@ -62,39 +58,16 @@ public class AnuncioMB {
 		return !this.getAnuncios().isEmpty();
 	}
 	
-	public List<Anuncio> getAnunciosCrescente(){
-		anunciosCrescente = fachada.sortByValorASC();
-		return anunciosCrescente;
-	}
-	
-	public List<Anuncio> getAnunciosDecrescente(){
-		anunciosDecrescente = fachada.sortByValorDESC();
-		return anunciosDecrescente;
-	}
-	
-	public List<Anuncio> sortByAsc() {
-		 
-			if (ordena && (ordenaDesc == false)){
-				//setAnuncios(fachada.sortByValorASC());
+	public void sortByAsc() {
+		 if (ordena )
 				ordena = false;
-				ordenaDesc = true;
-			}else
-				{
-				//setAnuncios(fachada.sortByValorDESC());
-				ordena = true;
-				ordenaDesc = false;
-				}
-		   return anuncios;
-		   
+		else ordena = true;
 	}
 	
 	public boolean isSortAscTrue() {
 		return ordena == true;
 	}
 	
-	public boolean isSortDescTrue(){
-		return ordenaDesc == true;
-	}
 	
 	
 	
