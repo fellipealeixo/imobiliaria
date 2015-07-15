@@ -19,8 +19,7 @@ public class AnuncioMB {
 	
 	private Anuncio anuncio;
 	private List<Anuncio> anuncios;
-	
-		private boolean ordena = true;
+	private boolean ordena = true;
 	
 	public AnuncioMB() {
 		super();
@@ -64,9 +63,6 @@ public class AnuncioMB {
 		else ordena = true;
 	}
 	
-	public boolean isSortAscTrue() {
-		return ordena == true;
-	}
 	
 	
 	
