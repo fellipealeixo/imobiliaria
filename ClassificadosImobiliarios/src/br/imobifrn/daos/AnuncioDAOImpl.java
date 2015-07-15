@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import br.imobifrn.entidades.Anuncio;
+import br.imobifrn.entidades.TipoAnuncio;
 
 @Stateless
 public class AnuncioDAOImpl implements AnuncioDAO {
@@ -26,5 +27,23 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 		Query query = em.createNamedQuery("getAllAnuncios");
 		return query.getResultList();
 	}
+	
+	public void editarAnuncio(Anuncio anuncio, 
+	String conteudo, 
+	TipoAnuncio tipoAnuncio,
+	double metragem,
+	String bairro,
+	int numeroDeQuartos, 
+	double valor)
+	{
+		anuncio.setBairro(bairro);
+		anuncio.setConteudo(conteudo);
+		anuncio.setMetragem(metragem);
+		anuncio.setNumeroDeQuartos(numeroDeQuartos);
+		anuncio.setTipoAnuncio(tipoAnuncio);
+		anuncio.setValor(valor);
+		em.merge(anuncio);
+	}
+
 
 }

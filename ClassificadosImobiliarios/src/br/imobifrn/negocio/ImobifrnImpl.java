@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import br.imobifrn.daos.AnuncioDAO;
 import br.imobifrn.daos.UsuarioDAO;
 import br.imobifrn.entidades.Anuncio;
+import br.imobifrn.entidades.TipoAnuncio;
 import br.imobifrn.entidades.Usuario;
 import br.imobifrn.exception.UsuarioExistenteExecption;
 
@@ -48,6 +49,24 @@ public class ImobifrnImpl implements Imobifrn {
 		catch (Exception e) {
 			return false;
 		}
+	}
+
+	public boolean editarAnuncio(Anuncio anuncio, 
+			String conteudo, 
+			TipoAnuncio tipoAnuncio,
+			double metragem,
+			String bairro,
+			int numeroDeQuartos, 
+			double valor) {
+		daoAnuncio.editarAnuncio(anuncio, 
+				conteudo, 
+				tipoAnuncio,
+				metragem,
+				bairro,
+				numeroDeQuartos, 
+				valor);
+		return true;
+		
 	}
 
 }

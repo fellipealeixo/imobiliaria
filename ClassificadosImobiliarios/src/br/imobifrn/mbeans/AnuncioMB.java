@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.imobifrn.entidades.Anuncio;
+import br.imobifrn.entidades.TipoAnuncio;
 import br.imobifrn.fachada.AnuncioFachada;
 
 @ManagedBean(name="anuncioMB")
@@ -20,6 +21,13 @@ public class AnuncioMB {
 	private Anuncio anuncio;
 	private List<Anuncio> anuncios;
 	
+	String conteudo; 
+	TipoAnuncio tipoAnuncio;
+	double metragem;
+	String bairro;
+	int numeroDeQuartos; 
+	double valor;
+	
 	public AnuncioMB() {
 		super();
 		anuncio = new Anuncio();
@@ -28,6 +36,17 @@ public class AnuncioMB {
 	
 	public String criarAnuncio(){
 		fachada.criarAnuncio(anuncio);
+		anuncio = new Anuncio();
+		return "index.xhtml";
+	}
+	
+	public String editarAnuncio(){
+		fachada.editarAnuncio(anuncio, conteudo, 
+				tipoAnuncio,
+				metragem,
+				bairro,
+				numeroDeQuartos, 
+				valor);
 		anuncio = new Anuncio();
 		return "index.xhtml";
 	}
