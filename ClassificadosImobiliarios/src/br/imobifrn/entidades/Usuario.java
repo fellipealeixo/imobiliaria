@@ -24,6 +24,7 @@ public class Usuario implements Serializable {
 	
 	public Usuario() {
 		super();
+		anuncios = new List<Anuncio>();
 	}
 	
 	public Usuario(String login, String senha) {
@@ -31,6 +32,7 @@ public class Usuario implements Serializable {
 		this.login = login;
 		this.senha = senha;
 		this.bloqueado = false;
+		anuncios = new List<Anuncio>();
 	}
 
 	@Id

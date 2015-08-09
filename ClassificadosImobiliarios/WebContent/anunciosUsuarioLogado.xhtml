@@ -15,27 +15,27 @@
 	<f:view>
 		<h2>Imobiliária IFRN</h2>
 		  		
-		<h:form id="f1" rendered="#{usuarioMB.isLogado}">
-		<h:dataTable border="1" value="#{usuarioMB.anunciosUsuarioLogado}" var="imovel">
-			<h:column id="column1">
-				<f:facet name="header">
-					<h:outputText value="Imóvel"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{imovel.conteudo}"></h:outputText>
-			</h:column>
-			<h:column id="column2">
-				<f:facet name="header">
-					<h:outputText value="Metragem"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{imovel.metragem}"></h:outputText>
-			</h:column>
-			<h:column id="column3">
-				<f:facet name="header">
-					<h:outputText value="Bairro"></h:outputText>
-				</f:facet>
-				<h:outputText value="#{imovel.bairro}"></h:outputText>
-			</h:column>
-		</h:dataTable>
+		<h:form id="f1" rendered="#{usuarioMB.logado}">
+			<h:dataTable border="1" value="#{usuarioMB.anunciosUsuarioLogado}" var="imovel">
+				<h:column id="column1">
+					<f:facet name="header">
+						<h:outputText value="Imóvel"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{imovel.conteudo}"></h:outputText>
+				</h:column>
+				<h:column id="column2">
+					<f:facet name="header">
+						<h:outputText value="Metragem"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{imovel.metragem}"></h:outputText>
+				</h:column>
+				<h:column id="column3">
+					<f:facet name="header">
+						<h:outputText value="Bairro"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{imovel.bairro}"></h:outputText>
+				</h:column>
+			</h:dataTable>
 		</h:form>
 		
 		<h:form>

@@ -22,15 +22,15 @@ public class Anuncio implements Serializable {
 	private int numeroDeQuartos;
 	private double valor;
 	private static final long serialVersionUID = 1L;
+	private Usuario usuario;
 
 	public Anuncio() {
 		super();
 		tipoAnuncio = TipoAnuncio.Aluguel;
 	}   
 	
-	
 	public Anuncio(int id, String conteudo, TipoAnuncio tipoAnuncio, double metragem, String bairro,
-			int numeroDeQuartos, double valor) {
+			int numeroDeQuartos, double valor, Usuario usuario) {
 		super();
 		this.id = id;
 		this.conteudo = conteudo;
@@ -39,8 +39,8 @@ public class Anuncio implements Serializable {
 		this.bairro = bairro;
 		this.numeroDeQuartos = numeroDeQuartos;
 		this.valor = valor;
+		this.usuario = usuario;
 	}
-
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -100,5 +100,16 @@ public class Anuncio implements Serializable {
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
-   
+	
+	@ManyToOne
+	@JoinColumn(name=“usuarioId”)
+	publig Usuario getUsuario()
+	{
+		return usuario;
+	}
+	
+	publig void setUsuario(Usuario usuario)
+	{
+		return this.usuario = usuario;
+	}
 }

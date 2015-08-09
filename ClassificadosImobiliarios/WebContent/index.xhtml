@@ -53,9 +53,9 @@
 		</h:form>
 		
 		<h:form>
-			<h:commandButton value="Cadastre-se" action="cadastroUsuario.xhtml" rendered="#{usuarioMB.isNotLogado}">
+			<h:commandButton value="Cadastre-se" action="cadastroUsuario.xhtml" rendered="#{usuarioMB.notLogado}">
 			</h:commandButton>
-			<h:commandButton value="Meus anuncios" action="anunciosUsuarioLogado.xhtml" rendered="#{usuarioMB.isLogado}">
+			<h:commandButton value="Meus anuncios" action="anunciosUsuarioLogado.xhtml" rendered="#{usuarioMB.logado}">
 			</h:commandButton>
 		</h:form>
 	</f:view>

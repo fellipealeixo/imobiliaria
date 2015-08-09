@@ -38,6 +38,8 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 		else
 			queryString += " id > 0"
 		
+		if(queryString.containsKey("usuarioId"))
+			queryString += " and usuarioId = " + parametros.get("usuarioId");
 		if(queryString.containsKey("conteudo"))
 			queryString += " and conteudo like '%" + parametros.get("conteudo") + "%'";
 		if(queryString.containsKey("tipoAnuncio"))
