@@ -32,5 +32,9 @@ public class AnuncioFachadaImpl implements AnuncioFachada {
 	{
 		return imobifrn.getAnunciosUsuarioLogado(idUsuarioLogado);
 	}
-
+	
+	public void removerAnuncio(Anuncio anuncio)
+	{
+		imobifrn.removerAnuncio(anuncio);
+	}
 }

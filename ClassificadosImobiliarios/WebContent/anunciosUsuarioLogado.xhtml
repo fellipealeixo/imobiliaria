@@ -35,6 +35,12 @@
 					</f:facet>
 					<h:outputText value="#{imovel.bairro}"></h:outputText>
 				</h:column>
+				<h:column id="column4">
+					<h:form>
+						<h:commandButton value="Remover Anúncio" action="#{usuarioMB.removerAnuncio(imovel)}">
+						</h:commandButton>
+					</h:form>
+				</h:column>
 			</h:dataTable>
 		</h:form>
 		

@@ -41,4 +41,9 @@ public class ImobifrnImpl implements Imobifrn {
 		parametros.put("id", isUsuarioLogado);
 		return daoAnuncio.pesquisarAnuncios(parametros);
 	}
+	
+	public void removerAnuncio(Anuncio anuncio)
+	{
+		daoAnuncio.removerAnuncio(anuncio);
+	}
 }

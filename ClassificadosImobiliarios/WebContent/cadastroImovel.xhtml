@@ -14,7 +14,7 @@
 <body>
 	<f:view>
 		<h3>Cadastro de Novo Anúncio</h3>
-		<h:form>
+		<h:form rendered="#{usuarioMB.logado}">
 			<h:panelGrid border="1" columns="2">
 				<h:outputText value="Descrição"></h:outputText>
 				<h:inputText value="#{anuncioMB.anuncio.conteudo}"></h:inputText>
@@ -28,6 +28,9 @@
 			<br />
 			<h:commandButton value="Cadastrar" action="#{anuncioMB.criarAnuncio}">
 			</h:commandButton>
+		</h:form>
+		<h:form rendered="#{usuarioMB.notLogado}">
+			<h3>Realize login para cadastrar anuncios</h3>
 		</h:form>
 	</f:view>
 </body>

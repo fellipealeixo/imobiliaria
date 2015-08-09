@@ -56,4 +56,9 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 		Query query = em.createQuery(queryString);
 		return query.getResultList();
 	}
+	
+	public void removerAnuncio(Anuncio anuncio)
+	{
+		ee.remove(anuncio);
+	}
 }

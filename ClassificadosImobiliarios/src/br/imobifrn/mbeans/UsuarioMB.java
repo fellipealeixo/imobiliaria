@@ -141,9 +141,26 @@ public class UsuarioMB {
 	public List<Anuncio> getAnunciosUsuarioLogado()
 	{
 		if(isLogado())
-			return fachada.getAnunciosUsuarioLogado(usuario.getId());
+			return anuncioFachada.getAnunciosUsuarioLogado(usuario.getId());
 		
 		this.setMensagem("NÃ£o existe usuario logado");
+		return "index.xhtml";
+	}
+	
+	public bool pertenceUsuarioLogado(Anuncio anuncio)
+	{
+		return isLogado() && anuncio.usuario.equals(usuario);
+	}
+	
+	public String removerAnuncio(Anuncio anuncio)
+	{
+		if(isLogado() && anuncio.usuario.equals(usuario))
+		{
+			anuncioFachada.removerAnuncio(anuncio);
+			return "";
+		}
+		
+		this.setMensagem("Esse anuncio não te pertence");
 		return "index.xhtml";
 	}
 }

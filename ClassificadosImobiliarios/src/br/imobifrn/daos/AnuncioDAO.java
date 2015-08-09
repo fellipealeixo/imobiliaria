@@ -15,4 +15,5 @@ public interface AnuncioDAO {
 	
 	public List<Anuncio> pesquisarAnuncios(HashMap<String, String> parametros);
 
+	public void removerAnuncio(Anuncio anuncio);
 }

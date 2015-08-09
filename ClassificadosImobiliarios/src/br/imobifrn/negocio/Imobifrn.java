@@ -16,4 +16,6 @@ public interface Imobifrn {
 	public List<Anuncio> getAnuncios();	
 	
 	public List<Anuncio> getAnunciosUsuarioLogado(int idUsuarioLogado);
+	
+	public void removerAnuncio(Anuncio anuncio);
 }
