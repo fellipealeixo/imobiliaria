@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import br.imobifrn.entidades.Anuncio;
@@ -17,6 +18,9 @@ public class AnuncioMB {
 	@EJB
 	AnuncioFachada fachada;
 	
+	@ManagedProperty(value="#{usuarioMB}")
+	private UsuarioMB usuarioMB;
+	
 	private Anuncio anuncio;
 	private List<Anuncio> anuncios;
 	
@@ -27,8 +31,12 @@ public class AnuncioMB {
 	}
 	
 	public String criarAnuncio(){
-		fachada.criarAnuncio(anuncio);
-		anuncio = new Anuncio();
+		if(usuarioMB.isLogado())
+		{
+			anuncio.setUsuario(usuarioMB.getUsuario());
+			fachada.criarAnuncio(anuncio);
+			anuncio = new Anuncio();
+		}
 		return "index.xhtml";
 	}
 
@@ -51,5 +59,15 @@ public class AnuncioMB {
 	
 	public boolean isPossuiAnuncios () {
 		return !this.getAnuncios().isEmpty();
+	}
+	
+	public UsuarioMB getUsuarioMB()
+	{
+		return usuarioMB;
+	}
+	
+	public void setUsuarioMB(UsuarioMB usuarioMB)
+	{
+		this.usuarioMB = usuarioMB;
 	}
 }

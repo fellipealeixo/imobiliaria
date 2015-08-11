@@ -151,18 +151,20 @@ public class UsuarioMB {
 	
 	public boolean pertenceUsuarioLogado(Anuncio anuncio)
 	{
-		return (isLogado() && anuncio.getUsuario().equals(usuario));
+		if(isLogado() && anuncio.getUsuario().equals(usuario))
+			return true;
+		return false;
 	}
 	
 	public String removerAnuncio(Anuncio anuncio)
 	{
-		if(isLogado() && anuncio.getUsuario().equals(usuario))
+		if(isLogado() && anuncio.getUsuario().getId() == usuario.getId())
 		{
 			anuncioFachada.removerAnuncio(anuncio);
 			return "";
 		}
 		
-		this.setMensagem("Esse anuncio não te pertence");
+		this.setMensagem("Esse anuncio não te pertence!");
 		return "index.xhtml";
 	}
 }
