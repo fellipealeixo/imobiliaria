@@ -6,6 +6,8 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.sun.xml.bind.v2.schemagen.xmlschema.List;
+
 import br.imobifrn.entidades.Anuncio;
 import br.imobifrn.entidades.Usuario;
 import br.imobifrn.exception.UsuarioExistenteException;
@@ -138,23 +140,23 @@ public class UsuarioMB {
 		logado = false;
 	}
 	
-	public List<Anuncio> getAnunciosUsuarioLogado()
+	public java.util.List<Anuncio> getAnunciosUsuarioLogado()
 	{
 		if(isLogado())
 			return anuncioFachada.getAnunciosUsuarioLogado(usuario.getId());
 		
 		this.setMensagem("Não existe usuario logado");
-		return "index.xhtml";
+		return null;
 	}
 	
-	public bool pertenceUsuarioLogado(Anuncio anuncio)
+	public boolean pertenceUsuarioLogado(Anuncio anuncio)
 	{
-		return isLogado() && anuncio.usuario.equals(usuario);
+		return (isLogado() && anuncio.getUsuario().equals(usuario));
 	}
 	
 	public String removerAnuncio(Anuncio anuncio)
 	{
-		if(isLogado() && anuncio.usuario.equals(usuario))
+		if(isLogado() && anuncio.getUsuario().equals(usuario))
 		{
 			anuncioFachada.removerAnuncio(anuncio);
 			return "";

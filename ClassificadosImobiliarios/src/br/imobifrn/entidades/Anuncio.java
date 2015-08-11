@@ -102,14 +102,14 @@ public class Anuncio implements Serializable {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name=“usuarioId”)
-	publig Usuario getUsuario()
+	@JoinColumn(name="usuarioId")
+	public Usuario getUsuario()
 	{
 		return usuario;
 	}
 	
-	publig void setUsuario(Usuario usuario)
+	public void setUsuario(Usuario usuario)
 	{
-		return this.usuario = usuario;
+		this.usuario = usuario;
 	}
 }

@@ -33,24 +33,24 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 	public List<Anuncio> pesquisarAnuncios(HashMap<String, String> parametros)
 	{
 		String queryString = "select a from Anuncio a where";
-		if(queryString.containsKey("id"))
+		if(queryString.contains("id"))
 			queryString += " id = " + parametros.get("id");
 		else
-			queryString += " id > 0"
+			queryString += " id > 0";
 		
-		if(queryString.containsKey("usuarioId"))
+		if(queryString.contains("usuarioId"))
 			queryString += " and usuarioId = " + parametros.get("usuarioId");
-		if(queryString.containsKey("conteudo"))
+		if(queryString.contains("conteudo"))
 			queryString += " and conteudo like '%" + parametros.get("conteudo") + "%'";
-		if(queryString.containsKey("tipoAnuncio"))
+		if(queryString.contains("tipoAnuncio"))
 			queryString += " and tipoAnuncio = " + parametros.get("tipoAnuncio");
-		if(queryString.containsKey("metragem"))
+		if(queryString.contains("metragem"))
 			queryString += " and metragem = " + parametros.get("metragem");
-		if(queryString.containsKey("bairro"))
+		if(queryString.contains("bairro"))
 			queryString += " and bairro = " + parametros.get("bairro");
-		if(queryString.containsKey("numeroDeQuartos"))
+		if(queryString.contains("numeroDeQuartos"))
 			queryString += " and numeroDeQuartos = " + parametros.get("numeroDeQuartos");
-		if(queryString.containsKey("valor"))
+		if(queryString.contains("valor"))
 			queryString += " and valor = " + parametros.get("valor");
 
 		Query query = em.createQuery(queryString);
@@ -59,6 +59,7 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 	
 	public void removerAnuncio(Anuncio anuncio)
 	{
-		ee.remove(anuncio);
+		anuncio = em.merge(anuncio);
+		em.remove(anuncio);
 	}
 }
