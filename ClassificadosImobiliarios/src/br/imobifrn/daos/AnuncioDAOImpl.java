@@ -27,7 +27,7 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 		Query query = em.createNamedQuery("getAllAnuncios");
 		return query.getResultList();
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Anuncio> pesquisarAnuncios(HashMap<String, String> parametros)
