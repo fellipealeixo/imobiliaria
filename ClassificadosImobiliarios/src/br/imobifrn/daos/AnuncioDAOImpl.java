@@ -57,6 +57,15 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 		return query.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Anuncio> pesquisarAnunciosDeUsuario(int idUsuario)
+	{
+		String queryString = "select a from Anuncio a where a.usuarioId = " + idUsuario;
+		Query query = em.createQuery(queryString);
+		return query.getResultList();
+	}
+	
 	public void removerAnuncio(Anuncio anuncio)
 	{
 		anuncio = em.merge(anuncio);

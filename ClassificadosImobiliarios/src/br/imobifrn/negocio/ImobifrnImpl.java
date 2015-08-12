@@ -37,9 +37,7 @@ public class ImobifrnImpl implements Imobifrn {
 	@Override
 	public List<Anuncio> getAnunciosUsuarioLogado(int idUsuarioLogado)
 	{
-		HashMap<String, String> parametros = new HashMap<String, String>();
-		parametros.put("id", Integer.toString(idUsuarioLogado));
-		return daoAnuncio.pesquisarAnuncios(parametros);
+		return daoAnuncio.pesquisarAnunciosDeUsuario(idUsuarioLogado);
 	}
 	
 	public void removerAnuncio(Anuncio anuncio)
