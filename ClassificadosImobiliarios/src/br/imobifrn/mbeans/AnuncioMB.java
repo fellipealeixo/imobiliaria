@@ -3,8 +3,10 @@ package br.imobifrn.mbeans;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import br.imobifrn.entidades.Anuncio;
@@ -17,19 +19,40 @@ public class AnuncioMB {
 	@EJB
 	AnuncioFachada fachada;
 	
+	@ManagedProperty(value="#{usuarioMB}")
+	private UsuarioMB usuarioMB;
+	
 	private Anuncio anuncio;
 	private List<Anuncio> anuncios;
 	
 	public AnuncioMB() {
 		super();
+	}
+	
+	@PostConstruct
+	void postConstruct() {
 		anuncio = new Anuncio();
 		anuncios = new ArrayList<Anuncio>();
 	}
 	
 	public String criarAnuncio(){
+		anuncio.setUsuario(usuarioMB.getUsuarioLogado());
 		fachada.criarAnuncio(anuncio);
 		anuncio = new Anuncio();
 		return "index.xhtml";
+	}
+	
+	public String removerAnuncio(Anuncio anuncio) {
+		fachada.removerAnuncio(anuncio);
+		return "";
+	}
+	
+	public UsuarioMB getUsuarioMB() {
+		return usuarioMB;
+	}
+
+	public void setUsuarioMB(UsuarioMB usuarioMB) {
+		this.usuarioMB = usuarioMB;
 	}
 
 	public Anuncio getAnuncio() {

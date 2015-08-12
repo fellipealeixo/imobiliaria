@@ -47,13 +47,16 @@
 				<h:outputText value="#{imovel.bairro}"></h:outputText>
 			</h:column>
 		</h:dataTable>
-		<h:form>
-			<h:commandButton value="Novo Anúncio" action="cadastroImovel.xhtml">
+		
+		<h:form id="form3" rendered="#{usuarioMB.notLogado}">
+			<h:commandButton value="Cadastre-se" action="cadastroUsuario.xhtml">
 			</h:commandButton>
 		</h:form>
-		
-		<h:form>
-			<h:commandButton value="Cadastre-se" action="cadastroUsuario.xhtml">
+		<br />
+		<h:form id="form4" rendered="#{usuarioMB.logado}">
+			<h:commandButton value="Novo Anúncio" action="cadastroImovel.xhtml">
+			</h:commandButton>
+			<h:commandButton value="Meus anuncios" action="anunciosUsuarioLogado.xhtml">
 			</h:commandButton>
 		</h:form>
 	</f:view>

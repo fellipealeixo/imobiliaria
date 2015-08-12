@@ -28,4 +28,13 @@ public class AnuncioFachadaImpl implements AnuncioFachada {
 		return imobifrn.getAnuncios();
 	}
 
+	public List<Anuncio> getAnunciosUsuarioLogado(int idUsuarioLogado)
+	{
+		return imobifrn.getAnunciosUsuarioLogado(idUsuarioLogado);
+	}
+
+	@Override
+	public void removerAnuncio(Anuncio anuncio) {
+		imobifrn.removerAnuncio(anuncio);
+	}
 }

@@ -10,5 +10,20 @@
 			<default-locale>en</default-locale>
 		</locale-config>
 	</application>
+<!-- 	<managed-bean> -->
+<!-- 		<managed-bean-name>usuarioMB</managed-bean-name> -->
+<!-- 		<managed-bean-class>br.imobifrn.mbeans.UsuarioMB</managed-bean-class> -->
+<!-- 		<managed-bean-scope>session</managed-bean-scope> -->
+<!-- 	</managed-bean> -->
+	
+<!-- 	<managed-bean> -->
+<!-- 		<managed-bean-name>anuncioMB</managed-bean-name> -->
+<!-- 		<managed-bean-class>br.imobifrn.mbeans.AnuncioMB</managed-bean-class> -->
+<!-- 		<managed-bean-scope>request</managed-bean-scope> -->
+<!-- 		<managed-property> -->
+<!-- 			<property-name>usuarioMB</property-name> -->
+<!-- 			<value>#{usuarioMB}</value> -->
+<!-- 		</managed-property> -->
+<!-- 	</managed-bean> -->
 
 </faces-config>

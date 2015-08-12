@@ -13,5 +13,9 @@ public interface AnuncioFachada {
 	public boolean criarAnuncio(Anuncio anuncio);
 
 	public List<Anuncio> getAnuncios();
+	
+	public List<Anuncio> getAnunciosUsuarioLogado(int idUsuarioLogado);
+	
+	public void removerAnuncio (Anuncio anuncio);
 }
 	

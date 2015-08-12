@@ -1,7 +1,9 @@
 package br.imobifrn.mbeans;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,11 +28,22 @@ public class UsuarioMB {
 	private String confirmarSenha;
 	private String mensagem;
 	private String login, senha;
+	private Usuario usuarioLogado;
+
 	private boolean logado;
 	
-	/*
-	 * LÃ³gica
-	 * */
+	public UsuarioMB() {
+		super();
+	}
+	
+	@PostConstruct
+	void postConstruct() {
+		usuario = new Usuario();
+		confirmarSenha = "";
+		mensagem = "";
+		logado = false;
+	}
+	
 	public String criarUsuario() throws UsuarioExistenteException{
 		if (login != null && !login.equals("") &&
 			senha != null && !senha.equals("") &&
@@ -58,11 +71,13 @@ public class UsuarioMB {
 				this.setMensagem("Informações não correspondem a um usuário válido!");
 			}
 			else {
+				usuarioLogado = usuario;
 				logado = true;
 			}
 		} else {
 			this.setMensagem("Forneça as informações de login e senha!");
 		}
+		System.out.println(login);
 		return "index.xhtml";
 	}
 	
@@ -73,8 +88,18 @@ public class UsuarioMB {
 		return "index.xhtml";
 	}
 	
+	public List<Anuncio> getAnunciosUsuarioLogado()
+	{
+		if(isLogado())
+			return anuncioFachada.getAnunciosUsuarioLogado(usuario.getId());
+		
+		this.setMensagem("Não existe usuario logado");
+		return null;
+	}
+	
+	
 	/*
-	 * Gets e Seters	
+	 * Gets e Setters	
 	 * */
 	public Usuario getUsuario() {
 		return usuario;
@@ -129,12 +154,13 @@ public class UsuarioMB {
 	public boolean isNotLogado() {
 		return !logado;
 	}
-
-	public UsuarioMB() {
-		super();
-		usuario = new Usuario();
-		confirmarSenha = "";
-		mensagem = "";
-		logado = false;
+	
+	public Usuario getUsuarioLogado() {
+		return usuarioLogado;
 	}
+
+	public void setUsuarioLogado(Usuario usuarioLogado) {
+		this.usuarioLogado = usuarioLogado;
+	}
+
 }
