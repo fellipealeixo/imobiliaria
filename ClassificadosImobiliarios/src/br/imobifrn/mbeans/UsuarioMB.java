@@ -59,7 +59,11 @@ public class UsuarioMB {
 			if (usuario == null) {
 				this.setMensagem("Informações não correspondem a um usuário válido!");
 			}
-			else {
+			else
+			if (usuario.isBloqueado()){
+				this.setMensagem("VocÃª estÃ¡ bloqueado");
+			}
+			else{
 				logado = true;
 			}
 		} else {

@@ -1,7 +1,6 @@
 package br.imobifrn.entidades;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +19,7 @@ public class Usuario implements Serializable {
 	private String login;
 	private String senha;
 	private boolean bloqueado;
+	private boolean adm;
 	private static final long serialVersionUID = 1L;
 	
 	public Usuario() {
@@ -31,6 +31,7 @@ public class Usuario implements Serializable {
 		this.login = login;
 		this.senha = senha;
 		this.bloqueado = false;
+		this.adm = false;
 	}
 
 	@Id
@@ -66,5 +67,13 @@ public class Usuario implements Serializable {
 
 	public void setBloqueado(boolean bloqueado) {
 		this.bloqueado = bloqueado;
+	}
+
+	public boolean isAdm() {
+		return adm;
+	}
+
+	public void setAdm(boolean adm) {
+		this.adm = adm;
 	}
 }
