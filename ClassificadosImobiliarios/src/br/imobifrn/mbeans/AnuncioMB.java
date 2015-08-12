@@ -42,8 +42,18 @@ public class AnuncioMB {
 		return "index.xhtml";
 	}
 	
+	public String editarAnuncio(Anuncio anuncio) {
+		anuncio.setEditavel(true);
+		return null;
+	}
+	
 	public String removerAnuncio(Anuncio anuncio) {
 		fachada.removerAnuncio(anuncio);
+		return "";
+	}
+	
+	public String salvarMudancas() {
+		anuncio.setEditavel(false);
 		return "";
 	}
 	

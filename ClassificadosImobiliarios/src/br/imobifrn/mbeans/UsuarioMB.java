@@ -97,7 +97,6 @@ public class UsuarioMB {
 		return null;
 	}
 	
-	
 	/*
 	 * Gets e Setters	
 	 * */

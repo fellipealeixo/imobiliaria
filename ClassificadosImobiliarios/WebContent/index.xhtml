@@ -42,9 +42,21 @@
 			</h:column>
 			<h:column id="column3">
 				<f:facet name="header">
+					<h:outputText value="Num. de Quartos"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.numeroDeQuartos}"></h:outputText>
+			</h:column>
+			<h:column id="column4">
+				<f:facet name="header">
 					<h:outputText value="Bairro"></h:outputText>
 				</f:facet>
 				<h:outputText value="#{imovel.bairro}"></h:outputText>
+			</h:column>
+			<h:column id="column5">
+				<f:facet name="header">
+					<h:outputText value="Valor"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.valor}"></h:outputText>
 			</h:column>
 		</h:dataTable>
 		

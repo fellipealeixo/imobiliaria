@@ -22,8 +22,10 @@ public class Anuncio implements Serializable {
 	private int numeroDeQuartos;
 	private double valor;
 	private Usuario usuario;
+	
+	boolean editavel;
+	
 	private static final long serialVersionUID = 1L;
-
 
 	public Anuncio() {
 		super();
@@ -43,7 +45,6 @@ public class Anuncio implements Serializable {
 		this.valor = valor;
 		this.usuario = usuario;
 	}
-
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -113,6 +114,20 @@ public class Anuncio implements Serializable {
 	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public boolean getEditavel() {
+		return editavel;
+	}
+	
+//	@Transient
+	public boolean isEditavel() {
+		return editavel;
+	}
+	
+//	@Transient
+	public void setEditavel(boolean editavel) {
+		this.editavel = editavel;
 	}
    
 }

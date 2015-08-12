@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Sistema de Imobiliária IFRN</title>
+</head>
+
+<body>
+	<f:view>
+		<h2>Imobiliária IFRN</h2>
+		  		
+		<h:form id="f1" rendered="#{usuarioMB.logado}">
+		<h:dataTable border="1" value="#{usuarioMB.anunciosUsuarioLogado}" var="imovel">
+			<h:column id="column1">
+				<f:facet name="header">
+					<h:outputText value="Imóvel"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.conteudo}" rendered="#{not imovel.editavel}"></h:outputText>
+				<h:inputText value="#{imovel.conteudo}" rendered="#{imovel.editavel}"></h:inputText>
+			</h:column>
+			<h:column id="column2">
+				<f:facet name="header">
+					<h:outputText value="Metragem"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.metragem}" rendered="#{not imovel.editavel}"></h:outputText>
+				<h:inputText value="#{imovel.metragem}" rendered="#{imovel.editavel}"></h:inputText>
+			</h:column>
+			<h:column id="column3">
+				<f:facet name="header">
+					<h:outputText value="Num. de Quartos"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.numeroDeQuartos}" rendered="#{not imovel.editavel}"></h:outputText>
+				<h:inputText value="#{imovel.numeroDeQuartos}" rendered="#{imovel.editavel}"></h:inputText>
+			</h:column>
+			<h:column id="column4">
+				<f:facet name="header">
+					<h:outputText value="Bairro"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.bairro}" rendered="#{not imovel.editavel}"></h:outputText>
+				<h:inputText value="#{imovel.bairro}" rendered="#{imovel.editavel}"></h:inputText>
+			</h:column>
+			<h:column id="column5">
+				<f:facet name="header">
+					<h:outputText value="Valor"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{imovel.valor}" rendered="#{not imovel.editavel}"></h:outputText>
+				<h:inputText value="#{imovel.valor}" rendered="#{imovel.editavel}"></h:inputText>
+			</h:column>
+			<h:column id="column7">
+				<h:commandButton value="Editar Anúncio" action="#{anuncioMB.editarAnuncio(imovel)}" rendered="#{not imovel.editavel}">
+				</h:commandButton>
+				<h:commandButton value="Salvar Mudanças" action="#{anuncioMB.salvarMudancas()}" rendered="#{imovel.editavel}">
+				</h:commandButton>
+			</h:column>
+			<h:column id="column6">
+				<h:commandButton value="Remover Anúncio" action="#{anuncioMB.removerAnuncio(imovel)}">
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+		</h:form>
+		
+		<h:form>
+			<h:commandButton value="Novo Anúncio" action="cadastroImovel.xhtml">
+			</h:commandButton>
+		</h:form>
+		
+	</f:view>
+</body>
+</html>
+
