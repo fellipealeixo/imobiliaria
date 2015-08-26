@@ -19,7 +19,7 @@ public class Usuario implements Serializable {
 	private String login;
 	private String senha;
 	private boolean bloqueado;
-	private boolean adm;
+	private boolean admi;
 	private static final long serialVersionUID = 1L;
 	
 	public Usuario() {
@@ -31,7 +31,7 @@ public class Usuario implements Serializable {
 		this.login = login;
 		this.senha = senha;
 		this.bloqueado = false;
-		this.adm = false;
+		this.admi = false;
 	}
 
 	@Id
@@ -69,11 +69,11 @@ public class Usuario implements Serializable {
 		this.bloqueado = bloqueado;
 	}
 
-	public boolean isAdm() {
-		return adm;
+	public boolean isAdmi() {
+		return admi;
 	}
 
-	public void setAdm(boolean adm) {
-		this.adm = adm;
+	public void setAdmi(boolean admi) {
+		this.admi = admi;
 	}
 }

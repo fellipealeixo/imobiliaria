@@ -34,12 +34,12 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 	{
 		String queryString = "select a from Anuncio a where";
 		if(queryString.contains("id"))
-			queryString += " a.usuarioid = " + parametros.get("id");
+			queryString += " a.id = " + parametros.get("id");
 		else
-			queryString += " a.usuarioid != 0";
+			queryString += " a.id != 0";
 		
-		if(queryString.contains("usuarioId"))
-			queryString += " and a.usuarioId = " + parametros.get("usuarioId");
+		if(queryString.contains("id"))
+			queryString += " and a.id = " + parametros.get("id");
 		if(queryString.contains("conteudo"))
 			queryString += " and a.conteudo like '%" + parametros.get("conteudo") + "%'";
 		if(queryString.contains("tipoAnuncio"))
@@ -61,7 +61,7 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 	@Override
 	public List<Anuncio> pesquisarAnunciosDeUsuario(int idUsuario)
 	{
-		String queryString = "select a from Anuncio a where a.usuarioId = " + idUsuario;
+		String queryString = "select a from Anuncio a where a.usuarioid = " + idUsuario;
 		Query query = em.createQuery(queryString);
 		return query.getResultList();
 	}
