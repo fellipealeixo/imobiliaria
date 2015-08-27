@@ -1,5 +1,7 @@
 package br.imobifrn.fachada;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -20,6 +22,12 @@ public class UsuarioFachadaImpl implements UsuarioFachada {
 	@Override
 	public Usuario autenticar(String login, String senha) {
 		return usuarios.autenticar(login, senha);
+	}
+	
+	@Override
+	public List<Usuario> listarUsuarios()
+	{
+		return usuarios.listarUsuarios();
 	}
 
 }

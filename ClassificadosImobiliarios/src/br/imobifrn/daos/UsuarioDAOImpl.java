@@ -1,5 +1,7 @@
 package br.imobifrn.daos;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -38,5 +40,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		} catch (PersistenceException pex) {
 		}
 		return usr;
+	}
+	
+	@Override
+	public List<Usuario> listarUsuarios()
+	{
+		Query query = em.createQuery("SELECT u FROM Usuario u");
+		return query.getResultList();
 	}
 }

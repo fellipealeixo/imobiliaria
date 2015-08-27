@@ -26,6 +26,22 @@
 				<h:outputText value="SAIR do sistema"></h:outputText>
 			</h:commandLink>
 		</h:form>
+		
+		<h:dataTable border="1" rendered="#{usuarioMB.admi}" value="#{usuarioMB.usuarios}" var="usr">
+			<h:column id="column1">
+				<f:facet name="header">
+					<h:outputText value="login"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{usr.login}"></h:outputText>
+			</h:column>
+			<h:column id="column2">
+				<f:facet name="header">
+					<h:outputText value="estado"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{usr.bloqueado}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+		
 		<h:dataTable border="1" value="#{anuncioMB.anuncios}" var="imovel">
 			<h:column id="column1">
 				<f:facet name="header">
@@ -53,11 +69,8 @@
 			</h:column>
 		</h:dataTable>
 		<h:form>
-			<h:commandButton value="Novo Anúncio" action="cadastroImovel.xhtml">
+			<h:commandButton value="Novo Anúncio" action="cadastroImovel.xhtml" rendered="#{usuarioMB.logado}">
 			</h:commandButton>
-		</h:form>
-		
-		<h:form>
 			<h:commandButton value="Cadastre-se" action="cadastroUsuario.xhtml" rendered="#{usuarioMB.notLogado}">
 			</h:commandButton>
 			<h:commandButton value="Meus anuncios" action="anunciosUsuarioLogado.xhtml" rendered="#{usuarioMB.logado}">

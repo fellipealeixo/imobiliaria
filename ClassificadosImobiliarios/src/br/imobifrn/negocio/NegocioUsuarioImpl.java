@@ -1,5 +1,7 @@
 package br.imobifrn.negocio;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -24,4 +26,9 @@ public class NegocioUsuarioImpl implements NegocioUsuario {
 		return true;
 	}
 
+	@Override
+	public List<Usuario> listarUsuarios()
+	{
+		return daoUsuario.listarUsuarios();
+	}
 }

@@ -171,4 +171,20 @@ public class UsuarioMB {
 		this.setMensagem("Esse anuncio não te pertence!");
 		return "index.xhtml";
 	}
+	
+	public java.util.List<Usuario> getUsuarios()
+	{
+		return usuarioFachada.listarUsuarios();
+	}
+	
+	public boolean isAdmi()
+	{
+		if (!isLogado())
+			return false;
+		else if(usuario == null)
+			return false;
+		else if(usuario != null && usuario.isAdmi())
+			return true;
+		return false;
+	}
 }
