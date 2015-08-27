@@ -61,8 +61,9 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 	@Override
 	public List<Anuncio> pesquisarAnunciosDeUsuario(int idUsuario)
 	{
-		String queryString = "select a from Anuncio a where a.usuarioid = " + idUsuario;
-		Query query = em.createQuery(queryString);
+		//String queryString = "select a from Anuncio a where a.usuarioid = " + idUsuario;
+		Query query = em.createQuery("SELECT a FROM Usuario u, IN (u.anuncios) a WHERE u.id = :idUsuario");
+		query.setParameter("idUsuario", idUsuario);
 		return query.getResultList();
 	}
 	
