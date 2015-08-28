@@ -47,4 +47,10 @@ public class ImobifrnImpl implements Imobifrn {
 		daoAnuncio.removerAnuncio(anuncio);
 	}
 
+	@Override
+	public void editarAnuncio(Anuncio anuncio) {
+		daoAnuncio.editarAnuncio(anuncio);
+	}
+
+
 }

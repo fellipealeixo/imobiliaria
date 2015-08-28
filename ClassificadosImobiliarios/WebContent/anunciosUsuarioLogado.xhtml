@@ -21,41 +21,34 @@
 				<f:facet name="header">
 					<h:outputText value="Imóvel"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{imovel.conteudo}" rendered="#{not imovel.editavel}"></h:outputText>
-				<h:inputText value="#{imovel.conteudo}" rendered="#{imovel.editavel}"></h:inputText>
+				<h:outputText value="#{imovel.conteudo}" ></h:outputText>
 			</h:column>
 			<h:column id="column2">
 				<f:facet name="header">
 					<h:outputText value="Metragem"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{imovel.metragem}" rendered="#{not imovel.editavel}"></h:outputText>
-				<h:inputText value="#{imovel.metragem}" rendered="#{imovel.editavel}"></h:inputText>
+				<h:outputText value="#{imovel.metragem}" ></h:outputText>
 			</h:column>
 			<h:column id="column3">
 				<f:facet name="header">
 					<h:outputText value="Num. de Quartos"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{imovel.numeroDeQuartos}" rendered="#{not imovel.editavel}"></h:outputText>
-				<h:inputText value="#{imovel.numeroDeQuartos}" rendered="#{imovel.editavel}"></h:inputText>
+				<h:outputText value="#{imovel.numeroDeQuartos}" ></h:outputText>
 			</h:column>
 			<h:column id="column4">
 				<f:facet name="header">
 					<h:outputText value="Bairro"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{imovel.bairro}" rendered="#{not imovel.editavel}"></h:outputText>
-				<h:inputText value="#{imovel.bairro}" rendered="#{imovel.editavel}"></h:inputText>
+				<h:outputText value="#{imovel.bairro}" ></h:outputText>
 			</h:column>
 			<h:column id="column5">
 				<f:facet name="header">
 					<h:outputText value="Valor"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{imovel.valor}" rendered="#{not imovel.editavel}"></h:outputText>
-				<h:inputText value="#{imovel.valor}" rendered="#{imovel.editavel}"></h:inputText>
+				<h:outputText value="#{imovel.valor}" ></h:outputText>
 			</h:column>
 			<h:column id="column7">
-				<h:commandButton value="Editar Anúncio" action="#{anuncioMB.editarAnuncio(imovel)}" rendered="#{not imovel.editavel}">
-				</h:commandButton>
-				<h:commandButton value="Salvar Mudanças" action="#{anuncioMB.salvarMudancas()}" rendered="#{imovel.editavel}">
+				<h:commandButton value="Editar Anúncio" action="#{anuncioMB.habilitarEdicao(imovel)}" >
 				</h:commandButton>
 			</h:column>
 			<h:column id="column6">

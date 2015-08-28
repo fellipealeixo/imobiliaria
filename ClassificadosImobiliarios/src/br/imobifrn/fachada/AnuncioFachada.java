@@ -17,5 +17,8 @@ public interface AnuncioFachada {
 	public List<Anuncio> getAnunciosUsuarioLogado(int idUsuarioLogado);
 	
 	public void removerAnuncio (Anuncio anuncio);
+
+	public void editarAnuncio(Anuncio anuncio);
+
 }
 	

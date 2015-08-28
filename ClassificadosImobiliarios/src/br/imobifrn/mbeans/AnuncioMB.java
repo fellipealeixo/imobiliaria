@@ -16,6 +16,8 @@ import br.imobifrn.fachada.AnuncioFachada;
 @SessionScoped
 public class AnuncioMB {
 	
+	private boolean editavel;
+
 	@EJB
 	AnuncioFachada fachada;
 	
@@ -31,6 +33,7 @@ public class AnuncioMB {
 	
 	@PostConstruct
 	void postConstruct() {
+		editavel = false;
 		anuncio = new Anuncio();
 		anuncios = new ArrayList<Anuncio>();
 	}
@@ -42,9 +45,17 @@ public class AnuncioMB {
 		return "index.xhtml";
 	}
 	
-	public String editarAnuncio(Anuncio anuncio) {
-		anuncio.setEditavel(true);
-		return null;
+	public String editarAnuncio() {
+		anuncio.setUsuario(usuarioMB.getUsuarioLogado());
+		fachada.editarAnuncio(anuncio);
+		anuncio = new Anuncio();
+		return "anunciosUsuarioLogado.xhtml";
+	}
+	
+	public String habilitarEdicao(Anuncio anuncio) {
+		this.anuncio = anuncio;
+		editavel = true;
+		return "cadastroImovel.xhtml";
 	}
 	
 	public String removerAnuncio(Anuncio anuncio) {
@@ -52,9 +63,13 @@ public class AnuncioMB {
 		return "";
 	}
 	
-	public String salvarMudancas() {
-		anuncio.setEditavel(false);
-		return "";
+	//Getters e setters
+	public boolean isEditavel() {
+		return editavel;
+	}
+
+	public boolean isNotEditavel() {
+		return !editavel;
 	}
 	
 	public UsuarioMB getUsuarioMB() {

@@ -18,4 +18,7 @@ public interface AnuncioDAO {
 
 	public void removerAnuncio(Anuncio anuncio);
 
+	public void editarAnuncio(Anuncio anuncio);
+
+
 }

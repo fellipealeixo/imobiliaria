@@ -65,4 +65,12 @@ public class AnuncioDAOImpl implements AnuncioDAO {
 		Anuncio anuncioParaRemocao = em.getReference(Anuncio.class, anuncio.getId());
 		em.remove(anuncioParaRemocao);
 	}
+
+	@Override
+	public void editarAnuncio(Anuncio anuncio) {
+		//Anuncio a = em.find(Anuncio.class, anuncio.getId());
+		em.merge(anuncio);
+		
+	}
+
 }

@@ -37,4 +37,10 @@ public class AnuncioFachadaImpl implements AnuncioFachada {
 	public void removerAnuncio(Anuncio anuncio) {
 		imobifrn.removerAnuncio(anuncio);
 	}
+
+	@Override
+	public void editarAnuncio(Anuncio anuncio) {
+		imobifrn.editarAnuncio(anuncio);
+	}
+
 }

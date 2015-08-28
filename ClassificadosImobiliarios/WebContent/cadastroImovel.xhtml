@@ -28,8 +28,12 @@
 				<h:inputText value="#{anuncioMB.anuncio.valor}"></h:inputText>
 			</h:panelGrid>
 			<br />
-			<h:commandButton value="Cadastrar" action="#{anuncioMB.criarAnuncio}">
-			</h:commandButton>
+			<h:form id="formAnuncio2" rendered="#{anuncioMB.notEditavel}">
+				<h:commandButton value="Cadastrar" action="#{anuncioMB.criarAnuncio}" />
+			</h:form>
+			<h:form id="formAnuncio3" rendered="#{anuncioMB.editavel}">
+				<h:commandButton value="Salvar Mudanças" action="#{anuncioMB.editarAnuncio}" />
+			</h:form>
 		</h:form>
 	</f:view>
 </body>
